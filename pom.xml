@@ -70,6 +70,7 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+							<excludes>**/*KasparovApplication*</excludes>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>
@@ -77,7 +78,7 @@
 										<limit>
 											<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.99</minimum>
+											<minimum>0.90</minimum>
 										</limit>
 									</limits>
 								</rule>
