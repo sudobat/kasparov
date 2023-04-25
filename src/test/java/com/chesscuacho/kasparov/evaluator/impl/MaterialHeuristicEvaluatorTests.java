@@ -19,7 +19,7 @@ public class MaterialHeuristicEvaluatorTests {
                 {"P", "P", "P", "P", "P", "P", "P", "P"},
                 {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
-
+        //Comentario
         MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
         assertThat(evaluation).isEqualTo(0);
