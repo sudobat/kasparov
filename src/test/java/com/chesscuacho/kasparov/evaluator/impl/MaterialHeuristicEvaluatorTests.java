@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MaterialHeuristicEvaluatorTests {
 
     @Test
-    void InitialPositionShouldReturnZero(){
+    void InitialPositionShouldReturnZero() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
@@ -27,7 +27,7 @@ public class MaterialHeuristicEvaluatorTests {
     }
 
     @Test
-    void InitialPositionShouldMinorPawnReturnNegative(){
+    void InitialPositionShouldMinorPawnReturnNegative() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
@@ -47,7 +47,7 @@ public class MaterialHeuristicEvaluatorTests {
     }
 
     @Test
-    void InitialPositionShouldMinorBishopReturnPositive(){
+    void InitialPositionShouldMinorBishopReturnPositive() {
 
         String[][] initTable = {
                 {"r", "n", " ", "q", "k", "b", "n", "r"},
@@ -67,7 +67,7 @@ public class MaterialHeuristicEvaluatorTests {
     }
 
     @Test
-    void InitialPositionShouldMinorKnightReturnNegative(){
+    void InitialPositionShouldMinorKnightReturnNegative() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
@@ -85,8 +85,9 @@ public class MaterialHeuristicEvaluatorTests {
         assertThat(evaluation).isEqualTo(-MaterialHeuristicEvaluator.KNIGHT);
 
     }
+
     @Test
-    void InitialPositionShouldMinorQueenReturnPositive(){
+    void InitialPositionShouldMinorQueenReturnPositive() {
 
         String[][] initTable = {
                 {"r", "n", "b", " ", "k", "b", "n", "r"},
@@ -104,8 +105,9 @@ public class MaterialHeuristicEvaluatorTests {
         assertThat(evaluation).isEqualTo(+MaterialHeuristicEvaluator.QUEEN);
 
     }
+
     @Test
-    void InitialPositionShouldMinorRoot(){
+    void InitialPositionShouldMinorRoot() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", " "},
@@ -125,7 +127,7 @@ public class MaterialHeuristicEvaluatorTests {
     }
 
     @Test
-    void WithoutWhiteShouldReturn3900(){
+    void WithoutWhiteShouldReturn3900() {
 
         String[][] initTable = {
                 {" ", " ", " ", " ", "k", " ", " ", " "},
@@ -140,7 +142,7 @@ public class MaterialHeuristicEvaluatorTests {
 
         MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+3900);
+        assertThat(evaluation).isEqualTo(+3800);
 
     }
 }

@@ -13,34 +13,34 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EvaluatorControllerTests {
 
-	@Value(value="${local.server.port}")
-	private int port;
+    @Value(value = "${local.server.port}")
+    private int port;
 
-	@Autowired
-	private EvaluatorController controller;
+    @Autowired
+    private EvaluatorController controller;
 
-	@Autowired
-	private TestRestTemplate restTemplate;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
-	@Test
-	void contextLoads() {
-		assertThat(controller).isNotNull();
-	}
+    @Test
+    void contextLoads() {
+        assertThat(controller).isNotNull();
+    }
 
-	@Test
-	public void evaluateShouldReturnResponseContainingScore() throws Exception {
-		assertThat(this.restTemplate
-				.getForObject("http://localhost:" + port + "/api/v1/evaluate",
-						String.class))
-				.contains("score");
-	}
+    @Test
+    public void evaluateShouldReturnResponseContainingScore() throws Exception {
+        assertThat(this.restTemplate
+                .getForObject("http://localhost:" + port + "/api/v1/evaluate",
+                        String.class))
+                .contains("score");
+    }
 
-	@Test
-	public void evaluateShouldReturnJsonResponse() throws Exception {
-		String body = this.restTemplate
-				.getForObject("http://localhost:" + port + "/api/v1/evaluate?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
-						String.class);
+    @Test
+    public void evaluateShouldReturnJsonResponse() throws Exception {
+        String body = this.restTemplate
+                .getForObject("http://localhost:" + port + "/api/v1/evaluate?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
+                        String.class);
 
-		assertThat(body).isEqualTo("{\"score\":0}");
-	}
+        assertThat(body).isEqualTo("{\"score\":0}");
+    }
 }
