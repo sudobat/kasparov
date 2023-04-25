@@ -70,7 +70,6 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
-							<excludes>**/*KasparovApplication*</excludes>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>
