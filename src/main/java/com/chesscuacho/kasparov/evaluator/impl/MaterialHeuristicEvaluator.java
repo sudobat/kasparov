@@ -35,6 +35,12 @@ public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
                     case "n":
                         result -= KNIGHT;
                         break;
+                    case "Q":
+                        result += QUEEN;
+                        break;
+                    case "q":
+                        result -= QUEEN;
+                        break;
                 }
             }
         }
