@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class EvaluatorController {
 
     @RequestMapping("/api/v1/evaluate")
-    public @ResponseBody String greeting() {
-        return "{\"score\":\"0.00\"}";
+    public @ResponseBody EvaluatorResponse greeting() {
+        return new EvaluatorResponse(0);
     }
 }

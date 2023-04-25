@@ -1,6 +1,7 @@
 package com.chesscuacho.kasparov;
 
 import com.chesscuacho.kasparov.http.EvaluatorController;
+import com.chesscuacho.kasparov.http.EvaluatorResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,7 @@ class EvaluatorControllerTests {
 	public void evaluateShouldReturnResponseContainingScore() throws Exception {
 		assertThat(this.restTemplate
 				.getForObject("http://localhost:" + port + "/api/v1/evaluate",
-				String.class))
+						String.class))
 				.contains("score");
 	}
 
@@ -40,6 +41,6 @@ class EvaluatorControllerTests {
 				.getForObject("http://localhost:" + port + "/api/v1/evaluate?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
 						String.class);
 
-		assertThat(body).isEqualTo("{\"score\":\"0.00\"}");
+		assertThat(body).isEqualTo("{\"score\":0}");
 	}
 }
