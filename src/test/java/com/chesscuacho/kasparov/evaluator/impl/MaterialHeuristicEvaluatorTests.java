@@ -123,4 +123,24 @@ public class MaterialHeuristicEvaluatorTests {
         assertThat(evaluation).isEqualTo(+MaterialHeuristicEvaluator.ROOK);
 
     }
+
+    @Test
+    void WithoutWhiteShouldReturn3900(){
+
+        String[][] initTable = {
+                {" ", " ", " ", " ", "k", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {"P", "P", "P", "P", "P", "P", "P", "P"},
+                {"R", "N", "B", "Q", "K", "B", "N", "R"}
+        };
+
+        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        int evaluation = oM.evaluate(initTable);
+        assertThat(evaluation).isEqualTo(+3900);
+
+    }
 }
