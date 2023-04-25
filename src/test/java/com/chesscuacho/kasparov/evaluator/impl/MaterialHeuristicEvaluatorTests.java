@@ -142,8 +142,6 @@ public class MaterialHeuristicEvaluatorTests {
 
         MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        //assertThat(evaluation).isEqualTo(+3900);
-        assertThat(evaluation).isEqualTo(-3900);
-
+        assertThat(evaluation).isEqualTo(+123900);
     }
 }
