@@ -12,6 +12,22 @@ public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
 
     @Override
     public int evaluate(String[][] board) {
-        return 0;
+        int result = 0;
+
+        for (String[] fila: board){
+            for (String pos: fila) {
+                switch(pos){
+                    case "P":
+                        result += PAWN;
+                        break;
+                    case "p":
+                        result -= PAWN;
+                        break;
+                }
+            }
+        }
+
+
+        return result;
     }
 }
