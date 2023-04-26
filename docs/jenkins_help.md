@@ -12,4 +12,7 @@ Copy the service file ``kasparov.service`` to path ``/etc/systemd/system/``
 Reload daemon:
 ``sudo /bin/systemctl daemon-reload``
 
+Enable the service:
+``sudo systemctl enable kasparov.service``
+
 Now the build script is ready to run
