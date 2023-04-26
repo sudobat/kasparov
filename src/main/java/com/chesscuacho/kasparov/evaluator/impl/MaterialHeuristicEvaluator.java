@@ -1,7 +1,9 @@
 package com.chesscuacho.kasparov.evaluator.impl;
 
 import com.chesscuacho.kasparov.evaluator.HeuristicEvaluator;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
 
     public static final int PAWN   = 100;
@@ -9,7 +11,6 @@ public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
     public static final int KNIGHT = 300;
     public static final int ROOK   = 500;
     public static final int QUEEN  = 900;
-
     @Override
     public int evaluate(String[][] board) {
         int result = 0;
@@ -50,6 +51,7 @@ public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
                 }
             }
         }
+
 
 
         return result;

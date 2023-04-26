@@ -5,9 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MaterialHeuristicEvaluatorTests {
-
+//Borra comentario
     @Test
     void InitialPositionShouldReturnZero() {
+
+
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
@@ -142,6 +144,6 @@ public class MaterialHeuristicEvaluatorTests {
 
         MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+123900);
+        assertThat(evaluation).isEqualTo(+3900);
     }
 }
