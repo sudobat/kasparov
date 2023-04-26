@@ -9,7 +9,6 @@ public class MaterialHeuristicEvaluator implements HeuristicEvaluator {
     public static final int KNIGHT = 300;
     public static final int ROOK   = 500;
     public static final int QUEEN  = 900;
-
     @Override
     public int evaluate(String[][] board) {
         int result = 0;
