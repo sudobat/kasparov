@@ -39,4 +39,4 @@ ssh $connectionString "sudo ln -s $java_version_path$jar_file $remote_jar_file"
 ssh $connectionString "sudo systemctl restart $service_name"
 
 #Notificación
-ssh $connectionString "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Se ha desplegado la versión $version de la app!\"}' https://hooks.slack.com/services/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"
+ssh $connectionString "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Se ha desplegado la versión $version de la app!\"}' https://hooks.slack.com/services/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"
