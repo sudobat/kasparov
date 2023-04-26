@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.chesscuacho</groupId>
 	<artifactId>kasparov</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>kasparov</name>
 	<description>Heuristic evaluator from FEN string</description>
 	<properties>
