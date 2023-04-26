@@ -17,7 +17,7 @@ public class MaterialHeuristicEvaluatorTests {
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {"P", "P", "P", "P", "P", "P", "P", "P"},
-                {"R", "N", "B", "Q", "K", "B", "N", "RRRRRR"}
+                {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
         MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
