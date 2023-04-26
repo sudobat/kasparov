@@ -9,6 +9,8 @@ public class MaterialHeuristicEvaluatorTests {
     @Test
     void InitialPositionShouldReturnZero() {
 
+
+
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
                 {"p", "p", "p", "p", "p", "p", "p", "p"},
