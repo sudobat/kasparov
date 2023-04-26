@@ -34,7 +34,7 @@ class EvaluatorControllerTests {
                         String.class))
                 .contains("score");
     }
-
+     //aaa
     @Test
     public void evaluateShouldReturnJsonResponse() throws Exception {
         String body = this.restTemplate
