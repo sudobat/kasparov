@@ -1,7 +1,9 @@
 package com.chesscuacho.kasparov.evaluator.impl;
 
 import com.chesscuacho.kasparov.evaluator.HeuristicEvaluator;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RookConnectedHeuristicEvaluator implements HeuristicEvaluator {
 
     public static final int BONUS = 120;
