@@ -96,9 +96,13 @@
 	</build>
 
 	<distributionManagement>
-		<repository>
+		<snapshotRepository>
 			<id>maven-snapshots</id>
 			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>maven-releases</id>
+			<url>https://nexus.lambdaloopers.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
 
