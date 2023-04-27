@@ -40,6 +40,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-model</artifactId>
+			<version>3.9.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -92,7 +97,7 @@
 
 	<distributionManagement>
 		<repository>
-			<id>maven-snapshots</id>
+			<id>maven-snapshot</id>
 			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
 		</repository>
 	</distributionManagement>

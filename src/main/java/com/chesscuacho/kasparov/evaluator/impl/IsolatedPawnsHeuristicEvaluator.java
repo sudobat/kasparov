@@ -16,12 +16,12 @@ public class IsolatedPawnsHeuristicEvaluator implements HeuristicEvaluator {
         return evaluatePawns(WHITE, board) + evaluatePawns(BLACK, board);
     }
 
-    int evaluatePawns(String _tipoFicha, String [][] _board) {
+    int evaluatePawns(String tipoFicha, String [][] board) {
         int result = 0;
         int nFilaIni = 0;
         int nFilaFin = 0;
 
-        if(WHITE.equals(_tipoFicha)) {
+        if(WHITE.equals(tipoFicha)) {
             nFilaIni = 1;
             nFilaFin = 6;
         } else {
@@ -31,20 +31,20 @@ public class IsolatedPawnsHeuristicEvaluator implements HeuristicEvaluator {
 
         for(int fila = nFilaIni; fila<nFilaFin; fila++) {
             for (int col = 0; col<8; col++){
-                String pos = _board[fila] [col];
-                if(_tipoFicha.equals(pos)) {
+                String pos = board[fila] [col];
+                if(tipoFicha.equals(pos)) {
                     boolean lProtected = false;
-                    int checkFila = (WHITE.equals(_tipoFicha))? (fila + 1) : (fila -1);
+                    int checkFila = (WHITE.equals(tipoFicha))? (fila + 1) : (fila -1);
 
                     if(col >0) {
-                        lProtected = _tipoFicha.equals(_board[checkFila] [col - 1]);
+                        lProtected = tipoFicha.equals(board[checkFila] [col - 1]);
                     }
                     if(col<7) {
-                        lProtected = lProtected || _tipoFicha.equals(_board[checkFila] [col + 1]);
+                        lProtected = lProtected || tipoFicha.equals(board[checkFila] [col + 1]);
                     }
 
                     if(!lProtected) {
-                        result = (WHITE.equals(_tipoFicha))? (result - PENALTY) : (result + PENALTY);
+                        result = (WHITE.equals(tipoFicha))? (result - PENALTY) : (result + PENALTY);
                     }
                 }
 
