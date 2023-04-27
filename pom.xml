@@ -70,6 +70,7 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+							<excludes>**/*KasparovApplication*</excludes>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>
@@ -88,5 +89,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>maven-snapshots</id>
+			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
+		</repository>
+	</distributionManagement>
 
 </project>
