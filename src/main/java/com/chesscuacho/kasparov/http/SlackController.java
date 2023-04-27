@@ -17,6 +17,6 @@ import java.util.List;
 public class SlackController {
     @RequestMapping("/api/v1/slack-evaluate")
     public @ResponseBody SlackResponse greeting(@RequestParam (defaultValue = "") String entrada) {
-        return new SlackResponse(entrada+UtilKasparov.getVersion());
+        return new SlackResponse(entrada+"-"+UtilKasparov.getVersion());
     }
 }
