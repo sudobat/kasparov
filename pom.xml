@@ -90,4 +90,11 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>maven-snapshots</id>
+			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
