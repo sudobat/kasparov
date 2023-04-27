@@ -40,16 +40,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-model</artifactId>
-			<version>3.9.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.10</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -88,7 +78,7 @@
 										<limit>
 											<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.01</minimum>
+											<minimum>0.80</minimum>
 										</limit>
 									</limits>
 								</rule>
@@ -102,7 +92,7 @@
 
 	<distributionManagement>
 		<repository>
-			<id>maven-snapshot</id>
+			<id>maven-snapshots</id>
 			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
 		</repository>
 	</distributionManagement>
