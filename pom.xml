@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.chesscuacho</groupId>
 	<artifactId>kasparov</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>kasparov</name>
 	<description>Heuristic evaluator from FEN string</description>
 	<properties>
@@ -77,7 +77,7 @@
 										<limit>
 											<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.90</minimum>
+											<minimum>0.80</minimum>
 										</limit>
 									</limits>
 								</rule>

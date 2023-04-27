@@ -4,12 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MaterialHeuristicEvaluatorTests {
-//Borra comentario
+public class IsolatedPawnsHeuristicEvaluatorTests {
+
     @Test
     void InitialPositionShouldReturnZero() {
-
-
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
@@ -22,128 +20,124 @@ public class MaterialHeuristicEvaluatorTests {
                 {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
         assertThat(evaluation).isEqualTo(0);
 
     }
 
     @Test
-    void InitialPositionShouldMinorPawnReturnNegative() {
+    void IsolatedWhitePawnShouldReturnMinusPenalty() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
                 {"p", "p", "p", "p", "p", "p", "p", "p"},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", "P", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {"P", " ", "P", "P", "P", "P", "P", "P"},
+                {"P", "P", "P", "P", " ", "P", "P", "P"},
                 {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(-MaterialHeuristicEvaluator.PAWN);
-
+        assertThat(evaluation).isEqualTo(-IsolatedPawnsHeuristicEvaluator.PENALTY);
     }
 
     @Test
-    void InitialPositionShouldMinorBishopReturnPositive() {
+    void TwoIsolatedWhitePawnShouldReturnDoubleMinusPenalty() {
 
         String[][] initTable = {
-                {"r", "n", " ", "q", "k", "b", "n", "r"},
+                {"r", "n", "b", "q", "k", "b", "n", "r"},
                 {"p", "p", "p", "p", "p", "p", "p", "p"},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", "P", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", "P"},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {"P", "P", "P", "P", "P", "P", "P", "P"},
+                {"P", " ", "P", "P", " ", "P", "P", " "},
                 {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+MaterialHeuristicEvaluator.BISHOP);
-
+        assertThat(evaluation).isEqualTo(- 2 * IsolatedPawnsHeuristicEvaluator.PENALTY);
     }
 
     @Test
-    void InitialPositionShouldMinorKnightReturnNegative() {
+    void AdvancedNonIsolatedWhitePawnsShouldReturnZero() {
 
         String[][] initTable = {
                 {"r", "n", "b", "q", "k", "b", "n", "r"},
                 {"p", "p", "p", "p", "p", "p", "p", "p"},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {"P", "P", "P", "P", "P", "P", "P", "P"},
-                {"R", "N", "B", "Q", "K", "B", " ", "R"}
+                {" ", "P", " ", " ", " ", " ", " ", "P"},
+                {" ", " ", "P", " ", " ", " ", "P", " "},
+                {"P", " ", " ", "P", " ", "P", " ", " "},
+                {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(-MaterialHeuristicEvaluator.KNIGHT);
+        assertThat(evaluation).isEqualTo(0);
+    }
 
+
+    @Test
+    void IsolatedBlackPawnShouldReturnPlusPenalty() {
+
+        String[][] initTable = {
+                {"r", "n", "b", "q", "k", "b", "n", "r"},
+                {"p", "p", "p", "p", " ", "p", "p", "p"},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", "p", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " "},
+                {"P", "P", "P", "P", "P", "P", "P", "P"},
+                {"R", "N", "B", "Q", "K", "B", "N", "R"}
+        };
+
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
+        int evaluation = oM.evaluate(initTable);
+        assertThat(evaluation).isEqualTo(+IsolatedPawnsHeuristicEvaluator.PENALTY);
     }
 
     @Test
-    void InitialPositionShouldMinorQueenReturnPositive() {
+    void TwoIsolatedBlackPawnShouldReturnDoublePlusPenalty() {
 
         String[][] initTable = {
-                {"r", "n", "b", " ", "k", "b", "n", "r"},
-                {"p", "p", "p", "p", "p", "p", "p", "p"},
+                {"r", "n", "b", "q", "k", "b", "n", "r"},
+                {"p", " ", "p", "p", "p", "p", "p", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", "p", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", "p"},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
+                {"P", "P", "P", "P", " ", "P", "P", "P"},
+                {"R", "N", "B", "Q", "K", "B", "N", "R"}
+        };
+
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
+        int evaluation = oM.evaluate(initTable);
+        assertThat(evaluation).isEqualTo(+ 2 * IsolatedPawnsHeuristicEvaluator.PENALTY);
+    }
+
+    @Test
+    void AdvancedNonIsolatedBlackPawnsShouldReturnZero() {
+
+        String[][] initTable = {
+                {"r", "n", "b", "q", "k", "b", "n", "r"},
+                {"p", " ", " ", "p", "p", "p", "p", "p"},
+                {" ", "p", " ", " ", " ", " ", " ", " "},
+                {" ", " ", "p", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " "},
                 {"P", "P", "P", "P", "P", "P", "P", "P"},
                 {"R", "N", "B", "Q", "K", "B", "N", "R"}
         };
 
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
+        IsolatedPawnsHeuristicEvaluator oM = new IsolatedPawnsHeuristicEvaluator();
         int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+MaterialHeuristicEvaluator.QUEEN);
-
-    }
-
-    @Test
-    void InitialPositionShouldMinorRoot() {
-
-        String[][] initTable = {
-                {"r", "n", "b", "q", "k", "b", "n", " "},
-                {"p", "p", "p", "p", "p", "p", "p", "p"},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {"P", "P", "P", "P", "P", "P", "P", "P"},
-                {"R", "N", "B", "Q", "K", "B", "N", "R"}
-        };
-
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
-        int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+MaterialHeuristicEvaluator.ROOK);
-
-    }
-
-    @Test
-    void WithoutWhiteShouldReturn3900() {
-
-        String[][] initTable = {
-                {" ", " ", " ", " ", "k", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {" ", " ", " ", " ", " ", " ", " ", " "},
-                {"P", "P", "P", "P", "P", "P", "P", "P"},
-                {"R", "N", "B", "Q", "K", "B", "N", "R"}
-        };
-
-        MaterialHeuristicEvaluator oM = new MaterialHeuristicEvaluator();
-        int evaluation = oM.evaluate(initTable);
-        assertThat(evaluation).isEqualTo(+3900);
+        assertThat(evaluation).isEqualTo(0);
     }
 }
