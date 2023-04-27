@@ -39,4 +39,5 @@ ssh $connectionString "sudo ln -s $java_version_path$jar_file $remote_jar_file"
 ssh $connectionString "sudo systemctl restart $service_name"
 
 #Notificación
-ssh $connectionString "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Se ha desplegado la versión $version de la app!\"}' https://hooks.slack.com/services/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"
+#Build parameter ${urlSlackWebhook} must be declared in Jenkins
+ssh $connectionString "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Se ha desplegado la versión $version de la app!\"}' ${urlSlackWebhook}"
