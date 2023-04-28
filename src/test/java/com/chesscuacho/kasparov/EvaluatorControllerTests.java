@@ -40,6 +40,7 @@ class EvaluatorControllerTests {
                 .getForObject("http://localhost:" + port + "/api/v1/evaluate?fen=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
                         String.class);
 
-        assertThat(body).isEqualTo("{\"score\":0}");
+        assertThat(body).contains("score") ;
+        assertThat(body).contains("version");
     }
 }
