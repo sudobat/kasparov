@@ -101,10 +101,19 @@
 	</build>
 
 	<distributionManagement>
-		<repository>
+		<snapshotRepository>
 			<id>maven-snapshots</id>
 			<url>https://nexus.lambdaloopers.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>maven-releases</id>
+			<url>https://nexus.lambdaloopers.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
+
+	<scm>
+		<developerConnection>scm:git:git@github.com:sudobat/kasparov.git</developerConnection>
+		<tag>kasparov-0.0.3</tag>
+	</scm>
 
 </project>
