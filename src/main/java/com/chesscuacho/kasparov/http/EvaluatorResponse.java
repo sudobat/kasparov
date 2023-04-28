@@ -8,4 +8,7 @@ public class EvaluatorResponse {
     public EvaluatorResponse(int score, String version) {
         this.score = score;this.version = version;
     }
+    public String dameSlackResponseString(){
+        return score + " [" + version + "]";
+    }
 }

@@ -17,11 +17,31 @@ import java.util.List;
 @Controller
 public class SlackController {
 
+    @Autowired
+    private List<HeuristicEvaluator> heuristicEvaluatorList;
     @Value("${app.version:unknown}")
     String version;
     @RequestMapping("/api/v1/slack-evaluate")
-    public @ResponseBody SlackResponse greeting(@RequestParam (defaultValue = "") String entrada) {
+   /* public @ResponseBody String greeting(@RequestParam (defaultValue = "") String fen) {
+
+        return new EvaluatorController().greeting(fen).dameSlackResponseString();
+    }*/
+
+
+
+
+
+
+    public @ResponseBody String greeting(@RequestParam (defaultValue = "") String fen) {
+        int resultScore = 0;
+        if (!UtilKasparov.isValidFen(fen)) return "fen not valid" + version;
+
+        String[][] matrixFen = UtilKasparov.FEN2Matrix(fen);
+        for (HeuristicEvaluator miHeuristic : heuristicEvaluatorList) {
+            resultScore += miHeuristic.evaluate(matrixFen);
+        }
+
         //UtilKasparov oUtil = new UtilKasparov();
-        return new SlackResponse(entrada+"-"+ version);
+        return String.valueOf(resultScore) + " [" + version + "]";
     }
 }
