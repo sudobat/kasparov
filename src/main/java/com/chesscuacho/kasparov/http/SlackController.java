@@ -32,7 +32,7 @@ public class SlackController {
 
 
 
-    public @ResponseBody String greeting(@RequestParam (defaultValue = "") String fen) {
+    public @ResponseBody String greeting(@RequestParam (defaultValue = UtilKasparov.INIT_BOARD) String fen) {
         int resultScore = 0;
         if (!UtilKasparov.isValidFen(fen)) return "fen not valid" + version;
 
