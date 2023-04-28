@@ -32,11 +32,11 @@ public class SlackController {
 
 
 
-    public @ResponseBody String greeting(@RequestParam (defaultValue = UtilKasparov.INIT_BOARD) String fen) {
+    public @ResponseBody String greeting(@RequestParam (defaultValue = UtilKasparov.INIT_BOARD) String text) {
         int resultScore = 0;
-        if (!UtilKasparov.isValidFen(fen)) return "fen not valid" + version;
+        if (!UtilKasparov.isValidFen(text)) return "fen not valid" + version;
 
-        String[][] matrixFen = UtilKasparov.FEN2Matrix(fen);
+        String[][] matrixFen = UtilKasparov.FEN2Matrix(text);
         for (HeuristicEvaluator miHeuristic : heuristicEvaluatorList) {
             resultScore += miHeuristic.evaluate(matrixFen);
         }
