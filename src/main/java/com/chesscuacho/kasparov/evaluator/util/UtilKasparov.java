@@ -3,6 +3,7 @@ package com.chesscuacho.kasparov.evaluator.util;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -83,13 +84,15 @@ public class UtilKasparov {
         }
         return count == 8;
     }
-
-    public static String getVersion()  {
-        MavenXpp3Reader reader = new MavenXpp3Reader();
+    @Value("${app.version:unknown}")
+    String version;
+    public  String getVersion()  {
+       /* MavenXpp3Reader reader = new MavenXpp3Reader();
         try{
             Model model = reader.read(new FileReader("pom.xml"));
             return model.getVersion();
-        } catch(IOException  |XmlPullParserException e) {}
-        return "Sin versión";
+        } catch(IOException  |XmlPullParserException e) {}*/
+        return version;
+        //return "Sin versión";
     }
 }
