@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.chesscuacho</groupId>
 	<artifactId>kasparov</artifactId>
-	<version>0.0.10-SNAPSHOT</version>
+	<version>0.0.10</version>
 	<name>kasparov</name>
 	<description>Heuristic evaluator from FEN string</description>
 	<properties>
@@ -112,7 +112,7 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:sudobat/kasparov.git</developerConnection>
-		<tag>kasparov-0.0.3</tag>
+		<tag>kasparov-0.0.10</tag>
 	</scm>
 
 </project>
