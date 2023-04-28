@@ -42,4 +42,12 @@ class SlackControllerTests {
 
         assertThat(body).contains("respuesta");
     }
+    @Test
+    public void evaluateShouldNotContainUnkown() throws Exception {
+        String body = this.restTemplate
+                .getForObject("http://localhost:" + port + "/api/v1/slack-evaluate?entrada=rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
+                        String.class);
+
+        assertThat(body).doesNotContain("unknown");
+    }
 }

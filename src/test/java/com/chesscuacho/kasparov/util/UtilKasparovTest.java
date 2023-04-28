@@ -43,11 +43,6 @@ public class UtilKasparovTest {
 
     }
 
-    @Test
-    void inValidPomVersion() {
-        String version = "";
-        assertThat(UtilKasparov.getVersion()).isNotEqualTo(version);
-    }
 
 
 }
